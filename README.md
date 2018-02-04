@@ -3,6 +3,6 @@
 Server-side scripts for interacting with mongodb
 
 * checkin
-..*get
-..*add
-..*update (coming)
+	* get
+	* add
+	* update (coming)
