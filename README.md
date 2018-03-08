@@ -3,7 +3,7 @@
 
 [/poi/nearby](#/poi/nearby)&nbsp;&nbsp;![GET](https://github.com/spatialdev/static-api-docs/blob/master/images/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Return set of nearby POI.
 
-[/checkin/get](#/checkin/get)&nbsp;&nbsp;![GET](https://github.com/spatialdev/static-api-docs/blob/master/images/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Return set of check-ins to a specified POI.
+[/checkin/get](#/checkin/get)&nbsp;&nbsp;![GET](https://github.com/spatialdev/static-api-docs/blob/master/images/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Return set of check-ins to a specified POI or by a specified user.
 
 
 ***
@@ -80,7 +80,7 @@ https://openpoi.org/poi/nearby?lat=38.9117609&lng=-77.0187946&key=abc123&offset=
 
 #### <a id="/checkin/get">/checkin/get</a>&nbsp;&nbsp;![GET](https://github.com/spatialdev/static-api-docs/blob/master/images/get.png?raw=true)
 
-Get a set of check-ins for a specified POI ID.
+Get a set of check-ins for a specified POI ID or specified USER ID.
 
 ##### Parameters
 |Name|Required|Type|Description|
