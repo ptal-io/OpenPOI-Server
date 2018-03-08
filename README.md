@@ -1,4 +1,4 @@
-## OPENPOI API: v0.1
+## OPENPOI API: v0.1 [ALPHA]
 #### Table of Contents
 
 [/poi/nearby](#/poi/nearby)&nbsp;&nbsp;![GET](https://github.com/spatialdev/static-api-docs/blob/master/images/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Return set of nearby POI.
