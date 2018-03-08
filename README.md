@@ -1,4 +1,4 @@
-## OPENPOI API: v1.0
+## OPENPOI API: v0.1
 #### Table of Contents
 
 [/poi/nearby](#/poi/nearby)&nbsp;&nbsp;![GET](https://github.com/spatialdev/static-api-docs/blob/master/images/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Return set of nearby POI.
@@ -87,8 +87,8 @@ Get a set of check-ins for a specified POI ID.
 |---|---|---|---|
 |poi|true (or user)|int|OpenPOI unique POI identifier|
 |user|true (or poi)|int|OpenPOI unique USER identifier|
-|limit|true|int|Number of check-ins to return (default: 50)|
-|offset|true|int|Offset for pagination (default: 0)|
+|limit|false|int|Number of check-ins to return (default: 50)|
+|offset|false|int|Offset for pagination (default: 0)|
 |key|false|float|API Key (currently not enforced)|
 
 ##### Success 200 (object)
