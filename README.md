@@ -87,8 +87,8 @@ Get a set of check-ins for a specified POI ID.
 |---|---|---|---|
 |poi|true (or user)|int|OpenPOI unique POI identifier|
 |user|true (or poi)|int|OpenPOI unique USER identifier|
-|lat|false|float|Latitude of device's location|
-|lng|false|float|Longitude of device's location|
+|limit|true|int|Number of check-ins to return (default: 50)|
+|offset|true|int|Offset for pagination (default: 0)|
 |key|false|float|API Key (currently not enforced)|
 
 ##### Success 200 (object)
