@@ -2,6 +2,7 @@
 #### Table of Contents
 
 [/poi/nearby](#/poi/nearby)&nbsp;&nbsp;![GET](https://github.com/spatialdev/static-api-docs/blob/master/images/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Return set of nearby POI.
+[/checkin/get](#/checkin/get)&nbsp;&nbsp;![GET](https://github.com/spatialdev/static-api-docs/blob/master/images/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Return set of check-ins to a specified POI.
 
 
 ***
@@ -48,7 +49,7 @@ Get a set of nearby POI ranked by distance from query geographic coordinates
 
 ##### Example Requests:
 ```
-https://openpoi.org/poi/nearby?lat=38.9117609&lng=-77.0187946&key=KL2RmYfnyEqS7nd00nGo5czG25qayHdF&offset=0&limit=50&q=
+https://openpoi.org/poi/nearby?lat=38.9117609&lng=-77.0187946&key=abc123&offset=0&limit=50&q=
 ```
 
 ##### Sample Response:
@@ -71,3 +72,72 @@ https://openpoi.org/poi/nearby?lat=38.9117609&lng=-77.0187946&key=KL2RmYfnyEqS7n
 		}
 	]
 }
+```
+
+***
+<br/>
+
+#### <a id="/checkin/get">/checkin/get</a>&nbsp;&nbsp;![GET](https://github.com/spatialdev/static-api-docs/blob/master/images/get.png?raw=true)
+
+Get a set of check-ins for a specified POI ID.
+
+##### Parameters
+|Name|Required|Type|Description|
+|---|---|---|---|
+|poi|true (or user)|int|OpenPOI unique POI identifier|
+|user|true (or poi)|int|OpenPOI unique USER identifier|
+|lat|false|float|Latitude of device's location|
+|lng|false|float|Longitude of device's location|
+|key|false|float|API Key (currently not enforced)|
+
+##### Success 200 (object)
+|Name|Type|Description|
+|---|---|---|
+|message|string|Success message.|
+|code|integer|Response code.|
+|data|Array|Set of Check-Ins (oldest to most recent)|
+| * poi|int|OpenPOI unique POI identifier|
+| * user|int|OpenPOI unique USER identifier|
+| * ts|timestamp with timezone|Date and time of check-in|
+| * user_details|Array|Array of user detail Objects|
+| ** id|int|OpenPOI unique USER identifier|
+| ** name|string|Full name of OpenPOI user|
+| ** photo|int|Photo of OpenPOI User|
+
+
+##### Error 500 (Object)
+|Name|Type|Description|
+|---|---|---|
+|message|string|Error message.|
+|code|integer|Response code.|
+
+
+
+##### Example Requests:
+```
+https://openpoi.org/checkin/get?poi=366&key=abc123
+https://openpoi.org/checkin/get?user=1&key=abc123
+```
+
+##### Sample Response:
+```json
+{
+	"message":"success",
+	"code":200,
+	"data":[
+		{
+			"poi":366,
+			"user":1,
+			"ts":"Wed Jan 31 2018 04:32:35 GMT+0000 (UTC)"
+			"userdetails":[
+				{
+					"id":1,
+					"name": "Luke Skywalker",
+					"photo": "https://static.comicvine.com/uploads/square_small/2/27836/637573-luke_skywalker.jpg"
+				}
+
+			]
+		}
+	]
+}
+```
