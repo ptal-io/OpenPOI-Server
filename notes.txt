@@ -1,0 +1,9 @@
+wget http://download.geofabrik.de/north-america/us/washington-latest.osm.pbf
+java -Xmx4g -jar osmpois.jar washington-latest.osm.pbf
+vim washington-latest.csv
+:%s/"/'/g
+:%s/'/''/g
+:wq
+psql openpoi
+copy poi_osm (osm_cat, osm_id, osm_lat, osm_lng, osm_name) from '/home/ubuntu/openpoi/data/north-america-latest.csv' with csv header delimiter '|';
+update poi set geom = st_setsrid(st_makepoint(osm_lng, osm_lat),4326) where geom is null;

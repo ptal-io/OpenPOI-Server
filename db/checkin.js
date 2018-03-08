@@ -1,0 +1,29 @@
+var db = require('./db')
+
+// get checkins
+exports.get =  function(query, cb) {
+  var collection = db.get().collection("checkins")
+  collection.aggregate([
+    {
+      $match: query
+    },
+    { $lookup:
+       {
+         from: 'users',
+         localField: 'user',
+         foreignField: 'id',
+         as: 'userdetails'
+       }
+    }
+  ]).toArray(function(err, result) {
+    cb(err,result);
+  })
+}
+
+// add checkin
+exports.add = function(query, cb) {
+  var collection = db.get().collection("checkins")
+  collection.insertOne(query, function(err, result) {
+    cb(err,result);
+  });
+}

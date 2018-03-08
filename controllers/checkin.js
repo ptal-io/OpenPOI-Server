@@ -26,11 +26,12 @@ router.get('/get', (request, response) => {
 
 // add a checkin given a user id and a poi id
 router.get('/add', (request, response) => {
-        response.setHeader('content-type', 'text/javascript');
         console.log('POI check-in from user:'+request.query.user);
         var query = { poi: parseInt(request.query.poi), user: parseInt(request.query.user), ts: Date(), lat: parseFloat(request.query.lat), lng: parseFloat(request.query.lng) };
-        var res = dbcheckins.addCheckin(query);
-        response.json(res);
+        dbcheckins.add(query, function(err, res) {
+         response.json(res);
+        })
 })
+
 
 module.exports = router;
