@@ -25,7 +25,7 @@ Get a set of nearby POI ranked by distance from query geographic coordinates
 |key|false|float|API Key (currently not enforced)|
 |q|false|string|Optional query parameter|
 
-##### Success 200 (object)
+##### Success 200 (Object)
 |Name|Type|Description|
 |---|---|---|
 |message|string|Success message.|
@@ -92,7 +92,7 @@ Get a set of check-ins for a specified POI ID or specified USER ID.
 |offset|false|int|Offset for pagination (default: 0)|
 |key|false|float|API Key (currently not enforced)|
 
-##### Success 200 (object)
+##### Success 200 (Object)
 |Name|Type|Description|
 |---|---|---|
 |message|string|Success message.|
@@ -155,7 +155,7 @@ Check user into POI.
 |lng|false|float|Longitude of device|
 |key|false|float|API Key (currently not enforced)|
 
-##### Success 200 (object)
+##### Success 200 (Object)
 |Name|Type|Description|
 |---|---|---|
 |message|string|Success message.|
