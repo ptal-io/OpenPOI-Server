@@ -1,17 +1,17 @@
 ## OPENPOI API: v0.1 [ALPHA]
 #### Table of Contents
 
-[/poi/nearby](#/poi/nearby)&nbsp;&nbsp;![GET](https://github.com/spatialdev/static-api-docs/blob/master/images/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Return set of nearby POI.
+[/poi/nearby](#/poi/nearby)&nbsp;&nbsp;![GET](https://github.com/ptal-io/OpenPOI-Server/blob/master/img/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Return set of nearby POI.
 
-[/checkin/get](#/checkin/get)&nbsp;&nbsp;![GET](https://github.com/spatialdev/static-api-docs/blob/master/images/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Return set of check-ins to a specified POI or by a specified user.
+[/checkin/get](#/checkin/get)&nbsp;&nbsp;![GET](https://github.com/ptal-io/OpenPOI-Server/blob/master/img/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Return set of check-ins to a specified POI or by a specified user.
 
-[/checkin/add](#/checkin/add)&nbsp;&nbsp;![GET](https://github.com/spatialdev/static-api-docs/blob/master/images/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Check user into a POI.
+[/checkin/add](#/checkin/add)&nbsp;&nbsp;![GET](https://github.com/ptal-io/OpenPOI-Server/blob/master/img/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Check user into a POI.
 
 
 ***
 <br/>
 
-#### <a id="/poi/nearby">/poi/nearby</a>&nbsp;&nbsp;![GET](https://github.com/spatialdev/static-api-docs/blob/master/images/get.png?raw=true)
+#### <a id="/poi/nearby">/poi/nearby</a>&nbsp;&nbsp;![GET](https://github.com/ptal-io/OpenPOI-Server/blob/master/img/get.png?raw=true?raw=true)
 
 Get a set of nearby POI ranked by distance from query geographic coordinates
 
@@ -80,7 +80,7 @@ https://openpoi.org/poi/nearby?lat=38.9117609&lng=-77.0187946&key=abc123&offset=
 ***
 <br/>
 
-#### <a id="/checkin/get">/checkin/get</a>&nbsp;&nbsp;![GET](https://github.com/spatialdev/static-api-docs/blob/master/images/get.png?raw=true)
+#### <a id="/checkin/get">/checkin/get</a>&nbsp;&nbsp;![GET](https://github.com/ptal-io/OpenPOI-Server/blob/master/img/get.png?raw=true?raw=true)
 
 Get a set of check-ins for a specified POI ID or specified USER ID.
 
@@ -142,7 +142,7 @@ https://openpoi.org/checkin/get?user=1&key=abc123
 ***
 <br/>
 
-#### <a id="/checkin/add">/checkin/add</a>&nbsp;&nbsp;![GET](https://github.com/spatialdev/static-api-docs/blob/master/images/get.png?raw=true)
+#### <a id="/checkin/add">/checkin/add</a>&nbsp;&nbsp;![GET](https://github.com/ptal-io/OpenPOI-Server/blob/master/img/get.png?raw=true?raw=true)
 
 Check user into POI.
 
