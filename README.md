@@ -85,8 +85,7 @@ Get a set of check-ins for a specified POI ID or specified USER ID.
 ##### Parameters
 |Name|Required|Type|Description|
 |---|---|---|---|
-|poi|true (or user)|int|OpenPOI unique POI identifier|
-|user|true (or poi)|int|OpenPOI unique USER identifier|
+|poi or user|true|int|OpenPOI unique POI or USER identifier|
 |limit|false|int|Number of check-ins to return (default: 50)|
 |offset|false|int|Offset for pagination (default: 0)|
 |key|false|float|API Key (currently not enforced)|
