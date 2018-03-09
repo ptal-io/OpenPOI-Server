@@ -5,6 +5,8 @@
 
 [/checkin/get](#/checkin/get)&nbsp;&nbsp;![GET](https://github.com/spatialdev/static-api-docs/blob/master/images/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Return set of check-ins to a specified POI or by a specified user.
 
+[/checkin/add](#/checkin/add)&nbsp;&nbsp;![GET](https://github.com/spatialdev/static-api-docs/blob/master/images/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Check user into a POI.
+
 
 ***
 <br/>
@@ -134,5 +136,49 @@ https://openpoi.org/checkin/get?user=1&key=abc123
 			}
 		}
 	]
+}
+```
+
+***
+<br/>
+
+#### <a id="/checkin/add">/checkin/add</a>&nbsp;&nbsp;![GET](https://github.com/spatialdev/static-api-docs/blob/master/images/get.png?raw=true)
+
+Check user into POI.
+
+##### Parameters
+|Name|Required|Type|Description|
+|---|---|---|---|
+|user|true|int|OpenPOI unique USER identifier|
+|poi|true|int|OpenPOI unique POI identifier|
+|lat|false|float|Latitude of device|
+|lng|false|float|Longitude of device|
+|key|false|float|API Key (currently not enforced)|
+
+##### Success 200 (object)
+|Name|Type|Description|
+|---|---|---|
+|message|string|Success message.|
+|code|integer|Response code.|
+
+
+##### Error 500 (Object)
+|Name|Type|Description|
+|---|---|---|
+|message|string|Error message.|
+|code|integer|Response code.|
+
+
+
+##### Example Requests:
+```
+https://openpoi.org/checkin/add?poi=366&user=1key=abc123
+```
+
+##### Sample Response:
+```json
+{
+	"message":"success",
+	"code":200
 }
 ```

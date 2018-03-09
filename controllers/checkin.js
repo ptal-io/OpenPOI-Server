@@ -45,10 +45,25 @@ router.get('/get', (request, response) => {
 // add a checkin given a user id and a poi id
 router.get('/add', (request, response) => {
         console.log('POI check-in from user:'+request.query.user);
-        var query = { poi: parseInt(request.query.poi), user: parseInt(request.query.user), ts: Date(), lat: parseFloat(request.query.lat), lng: parseFloat(request.query.lng) };
-        dbcheckins.add(query, function(err, res) {
-         response.json(res);
-        })
+        if ("poi" in request.query && "user" in request.query) {
+          var query = { poi: parseInt(request.query.poi), user: parseInt(request.query.user), ts: Date(), lat: parseFloat(request.query.lat), lng: parseFloat(request.query.lng) };
+          dbcheckins.add(query, function(err, res) {
+            var x = {};
+            if (JSON.stringify(res) == "{\"ok\":1,\"n\":1}") {
+              x.code = 200;
+              x.message = 'success';
+            } else {
+              x.code = 500;
+              x.message = 'error';
+            }
+            response.json(x);
+          })
+        } else {
+          var res = {};
+          res.code = 500;
+          res.message = "Missing POI or USER identifier.";
+          response.json(res);
+        }
 })
 
 
