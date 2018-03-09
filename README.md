@@ -128,14 +128,10 @@ https://openpoi.org/checkin/get?user=1&key=abc123
 			"poi":366,
 			"user":1,
 			"ts":"Wed Jan 31 2018 04:32:35 GMT+0000 (UTC)",
-			"userdetails":[
-				{
-					"id":1,
-					"name": "Luke Skywalker",
-					"photo": "https://static.comicvine.com/uploads/square_small/2/27836/637573-luke_skywalker.jpg"
-				}
-
-			]
+			"details": {
+				"name": "Luke Skywalker",
+				"photo": "https://abc123.jpg"
+			}
 		}
 	]
 }
