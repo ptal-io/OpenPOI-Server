@@ -1,7 +1,6 @@
 var express = require('express')
 var router = express.Router()
 var dbtags = require('../db/tags');
-var db = require('../db/db')
 
 router.use(function timeLog (req, res, next) {
   console.log('Time: ', Date.now())

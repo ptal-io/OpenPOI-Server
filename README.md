@@ -100,8 +100,7 @@ Get a set of check-ins for a specified POI ID or specified USER ID.
 | * poi|int|OpenPOI unique POI identifier|
 | * user|int|OpenPOI unique USER identifier|
 | * ts|timestamp with timezone|Date and time of check-in|
-| * user_details|Array|Array of user detail Objects|
-| ** id|int|OpenPOI unique USER identifier|
+| * details|Object|User details Object|
 | ** name|string|Full name of OpenPOI user|
 | ** photo|int|Photo of OpenPOI User|
 

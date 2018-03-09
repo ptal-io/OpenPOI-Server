@@ -1,7 +1,7 @@
 var db = require('./db')
 
 // get checkins
-exports.get =  function(query, cb) {
+exports.get =  function(query, limit, offset, cb) {
   var collection = db.get().collection("checkins")
   collection.aggregate([
     {
@@ -12,10 +12,21 @@ exports.get =  function(query, cb) {
          from: 'users',
          localField: 'user',
          foreignField: 'id',
-         as: 'userdetails'
+         as: 'details'
        }
+    },
+    { "$unwind": "$details" },
+    { "$project": 
+      {
+        "_id": 0,
+        "user": 1,
+        "poi": 1,
+        "ts": 1,
+        "details.photo": 1,
+        "details.name": 1
+      } 
     }
-  ]).toArray(function(err, result) {
+  ]).skip(offset).limit(limit).toArray(function(err, result) {
     cb(err,result);
   })
 }

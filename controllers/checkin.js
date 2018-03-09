@@ -8,6 +8,8 @@ router.use(function timeLog (req, res, next) {
   next()
 })
 
+var result = {};
+
 // List all checkins provided a user id or a poi id
 router.get('/get', (request, response) => {
 
@@ -19,8 +21,24 @@ router.get('/get', (request, response) => {
           query = { poi: parseInt(request.query.poi) };
           console.log("poi id query");
         }
-        dbcheckins.get(query,function(err, res) {
-           response.json(res);
+
+        // set limit and offset
+        limit = 50;
+        offset = 0;
+        if ("limit" in request.query) {
+            limit = parseInt(request.query.limit);
+        }
+        if ("offset" in request.query) {
+            offset = parseInt(request.query.offset);
+        }
+
+        
+        dbcheckins.get(query,limit,offset,function(err, res) {
+          response.json({
+                code: 200,
+                data: res,
+                message: 'success'
+          });
         })
 });
 
