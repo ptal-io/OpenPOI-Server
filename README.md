@@ -7,6 +7,8 @@
 
 [/checkin/add](#/checkin/add)&nbsp;&nbsp;![GET](https://github.com/ptal-io/OpenPOI-Server/blob/master/img/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Check user into a POI.
 
+[/tags/get](#/tags/get)&nbsp;&nbsp;![GET](https://github.com/ptal-io/OpenPOI-Server/blob/master/img/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Get most recent category tag for a POI.
+
 
 ***
 <br/>
@@ -113,7 +115,6 @@ Get a set of check-ins for a specified POI ID or specified USER ID.
 |code|integer|Response code.|
 
 
-
 ##### Example Requests:
 ```
 https://openpoi.org/checkin/get?poi=366&key=abc123
@@ -169,10 +170,9 @@ Check user into POI.
 |code|integer|Response code.|
 
 
-
 ##### Example Requests:
 ```
-https://openpoi.org/checkin/add?poi=366&user=1key=abc123
+https://openpoi.org/checkin/add?poi=366&user=1&key=abc123
 ```
 
 ##### Sample Response:
@@ -180,5 +180,57 @@ https://openpoi.org/checkin/add?poi=366&user=1key=abc123
 {
 	"message":"success",
 	"code":200
+}
+```
+
+***
+<br/>
+
+#### <a id="/tags/get">/tags/get</a>&nbsp;&nbsp;![GET](https://github.com/ptal-io/OpenPOI-Server/blob/master/img/get.png?raw=true?raw=true)
+
+Get most recent category tag for a POI.
+
+##### Parameters
+|Name|Required|Type|Description|
+|---|---|---|---|
+|poi|true|int|OpenPOI unique POI identifier|
+|key|false|float|API Key (currently not enforced)|
+
+##### Success 200 (Object)
+|Name|Type|Description|
+|---|---|---|
+|message|string|Success message.|
+|code|integer|Response code.|
+|data|Array|Set of Check-Ins (oldest to most recent)|
+| * poi|int|OpenPOI unique POI identifier|
+| * user|int|OpenPOI unique USER identifier|
+| * cat|string|Category string|
+| * ts|timestamp without time zone|Timestamp that the category tag was added.|
+
+##### Error 500 (Object)
+|Name|Type|Description|
+|---|---|---|
+|message|string|Error message.|
+|code|integer|Response code.|
+
+
+##### Example Requests:
+```
+https://openpoi.org/tags/get?poi=6690&key=abc123
+```
+
+##### Sample Response:
+```json
+{
+  "code": 200,
+  "data": [
+    {
+      "user": 2,
+      "poi": 6690,
+      "cat": "Beer Garden",
+      "ts": "Tue Mar 13 2018 02:42:09 GMT+0000 (UTC)"
+    }
+  ],
+  "message": "success"
 }
 ```
