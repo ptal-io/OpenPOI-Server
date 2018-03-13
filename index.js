@@ -14,6 +14,8 @@ app.get('/', (request, response) => {
 app.use('/checkin', require('./controllers/checkin'))
 app.use('/user', require('./controllers/user'))
 app.use('/poi', require('./controllers/nearby'))
+app.use('/tags', require('./controllers/tags'))
+app.use('/signup', require('./controllers/signup'))
 
 db.connect('mongodb://localhost:27017/mydatabase', function(err) {
   if (err) {

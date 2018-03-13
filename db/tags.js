@@ -3,7 +3,8 @@ var db = require('./db')
 // get checkins
 exports.get =  function(query, cb) {
   var collection = db.get().collection("tags")
-  collection.find(query).limit(1).sort({$natural:-1}).toArray( function(err, result) {
+  console.log(query);
+  collection.find(query, {_id:0}).limit(1).sort({$natural:-1}).toArray( function(err, result) {
     cb(err,result);
   })
 }
