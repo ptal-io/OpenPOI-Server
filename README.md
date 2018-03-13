@@ -9,6 +9,8 @@
 
 [/tags/get](#/tags/get)&nbsp;&nbsp;![GET](https://github.com/ptal-io/OpenPOI-Server/blob/master/img/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Get most recent category tag for a POI.
 
+[/tags/add](#/tags/add)&nbsp;&nbsp;![GET](https://github.com/ptal-io/OpenPOI-Server/blob/master/img/get.png?raw=true)&nbsp;&nbsp;&nbsp;&nbsp;Add tags to a specified POI.
+
 
 ***
 <br/>
@@ -231,6 +233,54 @@ https://openpoi.org/tags/get?poi=6690&key=abc123
       "ts": "Tue Mar 13 2018 02:42:09 GMT+0000 (UTC)"
     }
   ],
+  "message": "success"
+}
+```
+
+***
+<br/>
+
+#### <a id="/tags/add">/tags/add</a>&nbsp;&nbsp;![GET](https://github.com/ptal-io/OpenPOI-Server/blob/master/img/get.png?raw=true?raw=true)
+
+Add tags to a specified POI.
+
+##### Parameters
+|Name|Required|Type|Description|
+|---|---|---|---|
+|poi|true|int|OpenPOI unique POI identifier|
+|user|true|int|OpenPOI unique USER identifier|
+|`<key>`|false|any|Any number of key value pair tags.|
+|key|false|float|API Key (currently not enforced)|
+
+##### Success 200 (Object)
+|Name|Type|Description|
+|---|---|---|
+|message|string|Success message.|
+|code|integer|Response code.|
+|data|Array|Set of Check-Ins (oldest to most recent)|
+| * ok|int|temp status|
+| * n|int|temp rows impacted|
+
+##### Error 500 (Object)
+|Name|Type|Description|
+|---|---|---|
+|message|string|Error message.|
+|code|integer|Response code.|
+
+
+##### Example Requests:
+```
+https://openpoi.org/tags/add?poi=366&user=1&cat=Beer Garden&closed=true&key=abc123
+```
+
+##### Sample Response:
+```json
+{
+  "code": 200,
+  "data": {
+      "ok":1,
+      "n":1
+  },
   "message": "success"
 }
 ```
